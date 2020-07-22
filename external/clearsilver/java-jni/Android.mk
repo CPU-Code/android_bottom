@@ -1,3 +1,14 @@
+ #
+ # @Author: cpu_code
+ # @Date: 2020-07-22 20:54:53
+ # @LastEditTime: 2020-07-22 21:29:46
+ # @FilePath: \android_bottom\external\clearsilver\java-jni\Android.mk
+ # @Gitee: https://gitee.com/cpu_code
+ # @Github: https://github.com/CPU-Code
+ # @CSDN: https://blog.csdn.net/qq_44226094
+ # @Gitbook: https://923992029.gitbook.io/cpucode/
+ #
+
 LOCAL_PATH:= $(call my-dir)
 
 
@@ -37,6 +48,7 @@ LOCAL_CFLAGS += -fPIC
 # Change the following two lines for a 32-bit systems. shyluo@gmail.com, 2011-05-29.
 #LOCAL_CFLAGS += -m64
 #LOCAL_LDFLAGS += -m64
+# 在32位的机器上编译Android源代码
 LOCAL_CFLAGS += -m32
 LOCAL_LDFLAGS += -m32
 # We use the host compilers because the Linux SDK build

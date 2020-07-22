@@ -1,3 +1,14 @@
+ #
+ # @Author: cpu_code
+ # @Date: 2020-07-22 20:54:53
+ # @LastEditTime: 2020-07-22 21:27:44
+ # @FilePath: \android_bottom\build\core\main.mk
+ # @Gitee: https://gitee.com/cpu_code
+ # @Github: https://github.com/CPU-Code
+ # @CSDN: https://blog.csdn.net/qq_44226094
+ # @Gitbook: https://923992029.gitbook.io/cpucode/
+#
+
 # Only use ANDROID_BUILD_SHELL to wrap around bash.
 # DO NOT use other shells such as zsh.
 ifdef ANDROID_BUILD_SHELL
@@ -74,6 +85,7 @@ ifeq ($(BUILD_OS),linux)
 build_arch := $(shell uname -m)
 # Chang the following line for a 32-bit system. shyluo@gmail.com, 2011-05-29.
 #ifneq (64,$(findstring 64,$(build_arch)))
+# 在32位的机器上编译Android源代码
 ifneq (i686,$(findstring i686,$(build_arch)))
 $(warning ************************************************************)
 $(warning You are attempting to build on a 32-bit system.)
