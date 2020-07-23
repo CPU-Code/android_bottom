@@ -1,5 +1,16 @@
+<--
+ * @Author: cpu_code
+ * @Date: 2020-07-22 20:54:53
+ * @LastEditTime: 2020-07-22 21:56:26
+ * @FilePath: \android_bottom\packages\experimental\HelloAndroid\res\values\strings.xml
+ * @Gitee: https://gitee.com/cpu_code
+ * @Github: https://github.com/CPU-Code
+ * @CSDN: https://blog.csdn.net/qq_44226094
+ * @Gitbook: https://923992029.gitbook.io/cpucode/
+-->
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <-- 字符串资源文件 -->
     <string name="app_name">HelloAndroid</string>
     <string name="hello_android">Hello Android</string>
 </resources>

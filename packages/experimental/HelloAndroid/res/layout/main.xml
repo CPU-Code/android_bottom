@@ -1,13 +1,27 @@
+<--
+ * @Author: cpu_code
+ * @Date: 2020-07-22 20:54:53
+ * @LastEditTime: 2020-07-22 21:55:49
+ * @FilePath: \android_bottom\packages\experimental\HelloAndroid\res\layout\main.xml
+ * @Gitee: https://gitee.com/cpu_code
+ * @Github: https://github.com/CPU-Code
+ * @CSDN: https://blog.csdn.net/qq_44226094
+ * @Gitbook: https://923992029.gitbook.io/cpucode/
+-->
+
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" 
     android:gravity="center">
+
+        <-- 在屏幕中间用一个TextView控件来显示一段文本 -->
         <TextView 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/hello_android" >
         </TextView>
+        
 </LinearLayout>
