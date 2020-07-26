@@ -1,4 +1,14 @@
 /*
+ * @Author: cpu_code
+ * @Date: 2020-07-22 20:56:35
+ * @LastEditTime: 2020-07-24 10:38:12
+ * @FilePath: \android_bottom\hardware\libhardware\hardware.c
+ * @Gitee: https://gitee.com/cpu_code
+ * @Github: https://github.com/CPU-Code
+ * @CSDN: https://blog.csdn.net/qq_44226094
+ * @Gitbook: https://923992029.gitbook.io/cpucode/
+ */ 
+/*
  * Copyright (C) 2008 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -36,14 +46,23 @@
  * is "<MODULE_ID>.variant.so" so for the led module the Dream variants 
  * of base "ro.product.board", "ro.board.platform" and "ro.arch" would be:
  *
+ * 硬件抽象层模块文件的命名规范为“＜MODULE_ID＞.variant.so”，
+ * MODULE_ID表示模块的ID
+ * variant表示四个系统属性 ro.hardware、 ro.product.board、 ro.board.platform和ro.arch之一
+ * 
  * led.trout.so
  * led.msm7k.so
  * led.ARMV6.so
  * led.default.so
  */
 
+// 依次按照上到下的顺序来取它们的属性值, 其中有一个系统属性存在，就把它的值作为 variant 的值，
+//然后再检查对应的文件是否存在，如果存在，就找到要加载的硬件抽象层模块文件了； 
+//否则， 就继续查找下一个系统属性。 
+//如 所有的系统属性都不存在， 或 所有的硬件抽象层模块文件都不存在， 
+//就使用“ ＜MODULE_ID＞.default.so ”来作为要加载的硬件抽象层模块文件的名称
 static const char *variant_keys[] = {
-    "ro.hardware",  /* This goes first so that it can pick up a different
+    "ro.hardware",  /* 由 init 进程负责设置 */ /* This goes first so that it can pick up a different
                        file on the emulator. */
     "ro.product.board",
     "ro.board.platform",

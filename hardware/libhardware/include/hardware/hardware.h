@@ -1,4 +1,14 @@
 /*
+ * @Author: cpu_code
+ * @Date: 2020-07-22 20:56:35
+ * @LastEditTime: 2020-07-24 10:52:57
+ * @FilePath: \android_bottom\hardware\libhardware\include\hardware\hardware.h
+ * @Gitee: https://gitee.com/cpu_code
+ * @Github: https://github.com/CPU-Code
+ * @CSDN: https://blog.csdn.net/qq_44226094
+ * @Gitbook: https://923992029.gitbook.io/cpucode/
+ */ 
+/*
  * Copyright (C) 2008 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -42,8 +52,16 @@ struct hw_device_t;
  * and the fields of this data structure must begin with hw_module_t
  * followed by module specific information.
  */
+/* 
+ * 硬件抽象层中的每一个模块都必须自定义一个硬件抽象层模块结构体， 
+ 8 而且它的第一个成员变量的类型必须为 hw_module_t
+*/
 typedef struct hw_module_t {
     /** tag must be initialized to HARDWARE_MODULE_TAG */
+    /* 
+     * 成员变量 tag 的值必须设置为 HARDWARE_MODULE_TAG， 即设置为一个常量值（'H'＜＜24|'W'＜＜16|'M'＜＜8|'T'）,
+     * 用来标志这是一个硬件抽象层模块结构体 
+     */
     uint32_t tag;
 
     /** major version number for the module */
@@ -62,9 +80,15 @@ typedef struct hw_module_t {
     const char *author;
 
     /** Modules methods */
+    /* 定义了一个硬件抽象层模块的操作方法列表 */
     struct hw_module_methods_t* methods;
 
     /** module's dso */
+    /* 保存加载硬件抽象层模块后得到的句柄值 */
+    /*
+     * 加载硬件抽象层模块的过程实际上就是调用 dlopen 函数来加载与其对应的动态链接库文件的过程。 
+     * 在调用 dlclose 函数来卸载这个硬件抽象层模块时， 要用到这个句柄值
+     */
     void* dso;
 
     /** padding to 128 bytes, reserved for future use */
@@ -74,6 +98,17 @@ typedef struct hw_module_t {
 
 typedef struct hw_module_methods_t {
     /** Open a specific device */
+    /**
+     * @function: 打开硬件抽象层模块中的硬件设备
+     * @parameter: 
+     *        module : 要打开的硬件设备所在的模块
+     *        id : 要打开的硬件设备的ID
+     *        device : 一个输出参数，描述一个已经打开的硬件设备
+     * @return: 
+     *     success: 
+     *     error: 
+     * @note: 
+     */
     int (*open)(const struct hw_module_t* module, const char* id,
             struct hw_device_t** device);
 
@@ -83,8 +118,16 @@ typedef struct hw_module_methods_t {
  * Every device data structure must begin with hw_device_t
  * followed by module specific public methods and attributes.
  */
+/*
+ * 硬件抽象层模块中的每一个硬件设备都必须自定义一个硬件设备结构体，
+ * 而且它的第一个成员变量的类型必须为hw_device_t
+ */
 typedef struct hw_device_t {
     /** tag must be initialized to HARDWARE_DEVICE_TAG */
+    /*
+     * tag 必须 == HARDWARE_DEVICE_TAG，即设置为一个常量值（'H'＜＜24|'W'＜＜16|'D'＜＜8|'T'）,
+     * 用来标志这是一个硬件抽象层中的硬件设备结构体
+     */
     uint32_t tag;
 
     /** version number for hw_device_t */
@@ -97,6 +140,7 @@ typedef struct hw_device_t {
     uint32_t reserved[12];
 
     /** Close this device */
+    /* 关闭一个硬件设备 */
     int (*close)(struct hw_device_t* device);
 
 } hw_device_t;
@@ -104,6 +148,10 @@ typedef struct hw_device_t {
 /**
  * Name of the hal_module_info
  */
+/*
+硬件抽象层中的每一个模块都必须存在一个导出符号 HAL_MODULE_IFNO_SYM， 即“HMI”， 
+它指向一个自定义的硬件抽象层模块结构体
+*/
 #define HAL_MODULE_INFO_SYM         HMI
 
 /**
