@@ -1,3 +1,14 @@
+<!--
+ * @Author: cpu_code
+ * @Date: 2020-07-22 20:48:51
+ * @LastEditTime: 2020-07-26 19:46:37
+ * @FilePath: \android_bottom\README.md
+ * @Gitee: https://gitee.com/cpu_code
+ * @Github: https://github.com/CPU-Code
+ * @CSDN: https://blog.csdn.net/qq_44226094
+ * @Gitbook: https://923992029.gitbook.io/cpucode/
+--> 
+
 # android_bottom
 
 安卓底层源码注释
@@ -66,6 +77,11 @@
 
 ## [hardware/libhardware](hardware/libhardware)
 
+* [硬件抽象层模块的命名规范__hardware](hardware/libhardware/hardware.c)
+
+### [libhardware/include/hardware](hardware/libhardware/include/hardware)
+
+* [硬件抽象层模块__hardware](hardware/libhardware/include/hardware/hardware.h)
 
 -------------------
 
