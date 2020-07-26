@@ -1,3 +1,13 @@
+ #
+ # @Author: cpu_code
+ # @Date: 2020-07-22 20:56:57
+ # @LastEditTime: 2020-07-23 22:01:12
+ # @FilePath: \android_bottom\kernel\goldfish\drivers\Makefile
+ # @Gitee: https://gitee.com/cpu_code
+ # @Github: https://github.com/CPU-Code
+ # @CSDN: https://blog.csdn.net/qq_44226094
+ # @Gitbook: https://923992029.gitbook.io/cpucode/
+ #
 #
 # Makefile for the Linux kernel device drivers.
 #
@@ -5,6 +15,7 @@
 # Rewritten to use lists instead of if-statements.
 #
 
+# 执行make命令来编译内核时， 编译系统就会对驱动程序freg进行编译
 obj-$(CONFIG_FREG)		+= freg/
 obj-y				+= gpio/
 obj-$(CONFIG_PCI)		+= pci/

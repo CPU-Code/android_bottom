@@ -1,3 +1,23 @@
+ #
+ # @Author: cpu_code
+ # @Date: 2020-07-22 20:56:57
+ # @LastEditTime: 2020-07-23 21:52:34
+ # @FilePath: \android_bottom\kernel\goldfish\drivers\freg\Kconfig
+ # @Gitee: https://gitee.com/cpu_code
+ # @Github: https://github.com/CPU-Code
+ # @CSDN: https://blog.csdn.net/qq_44226094
+ # @Gitbook: https://923992029.gitbook.io/cpucode/
+ #
+
+# 编译选项
+# 第一种方式是直接内建在内核中； 
+# 第二种方式是编译成内核模块； 
+# 第三种方式是不编译到内核中。 
+
+# 默认的编译方式为n， 即不编译到内核中， 
+# 所以 需要执行make menuconfig命令来修改它的编译选项， 
+# 将驱动程序freg内建到内核中 或 以模块的方式来编译
+
 config FREG
 	tristate "Fake Register Driver"
 	default n

@@ -1,3 +1,13 @@
+ #
+ # @Author: cpu_code
+ # @Date: 2020-07-22 20:56:48
+ # @LastEditTime: 2020-07-23 22:01:20
+ # @FilePath: \android_bottom\kernel\goldfish\arch\arm\Kconfig
+ # @Gitee: https://gitee.com/cpu_code
+ # @Github: https://github.com/CPU-Code
+ # @CSDN: https://blog.csdn.net/qq_44226094
+ # @Gitbook: https://923992029.gitbook.io/cpucode/
+ #
 #
 # For a description of the syntax of this configuration file,
 # see Documentation/kbuild/kconfig-language.txt.
@@ -1238,6 +1248,8 @@ source "net/Kconfig"
 
 menu "Device Drivers"
 
+# 当执行 make menuconfig 配置内核编译选项时， 
+# 编译系统就可以找到驱动程序freg中的Kconfig文件了，就可以配置驱动程序freg的编译方式
 source "drivers/freg/Kconfig"
 
 source "drivers/base/Kconfig"
